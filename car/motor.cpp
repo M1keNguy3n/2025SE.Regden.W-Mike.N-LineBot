@@ -4,7 +4,7 @@ Motor::Motor(Servo &servo){
   this-> servo = servo;
 }
 
-void Motor::init(Servo &servo){
+void Motor::initServo(){
   servo.attach(pin, min, max);
 }
 

@@ -11,7 +11,7 @@ class Motor{
   public:
     Motor(){}
     Motor(Servo &servo);
-    void init(Servo &servo);
+    void initServo();
     void stop();
     void fast_forward();
     void fast_backward();
