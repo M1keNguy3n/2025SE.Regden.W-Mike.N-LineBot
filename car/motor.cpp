@@ -4,27 +4,23 @@ Motor::Motor(Servo &servo){
   this-> servo = servo;
 }
 
-void Motor::initServo(){
-  servo.attach(pin, min, max);
-}
-
 void Motor::fast_forward(){
-  Motor.writeMicroseconds(max);
+  servo.writeMicroseconds(max);
 }
 
 void Motor::fast_backward(){
-  Motor.writeMicroseconds(min);
+  servo.writeMicroseconds(min);
 }
 
-void Motor::stop(){
-  Motor.writeMicroseconds(stop);
+void Motor::stop_motor(){
+  servo.writeMicroseconds(stop);
 }
 
 void Motor::slow_forward(){
-  Motor.writeMicroseconds(stop + 200);
+  servo.writeMicroseconds(stop + 200);
 }
 
 void Motor::slow_backward(){
-  Motor.writeMicroseconds(stop - 200);
+  servo.writeMicroseconds(stop - 200);
 }
 

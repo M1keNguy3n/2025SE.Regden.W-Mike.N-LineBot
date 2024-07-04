@@ -8,10 +8,12 @@ class IR{
     byte pin_analog;
     unsigned long state_analog;
   public:
-    IR(){}
-    IR(byte pin_digital, byte pin_analog){}
+    IR(){} //do not use
+    IR(byte pin_digital, byte pin_analog);
     void init_digital();
     void init_analog();
-    void readState();
+    void init();
+    void readStateDigital();
+    void readStateAnalog();
 };
 #endif
