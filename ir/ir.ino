@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "ir.h"
 #define IR_PIN_DIGITAL 5
 #define IR_PIN_ANALOG A0
