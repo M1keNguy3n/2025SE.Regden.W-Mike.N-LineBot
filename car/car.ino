@@ -8,7 +8,7 @@
 Servo r_servo;
 Motor r_motor(r_servo);
 Servo l_servo;
-Motor l_motor(r_servo);
+Motor l_motor(l_servo);
 IR r_ir(R_IR_PIN_DIGITAL, R_IR_PIN_ANALOG);
 IR l_ir(L_IR_PIN_DIGITAL, L_IR_PIN_ANALOG);
 
