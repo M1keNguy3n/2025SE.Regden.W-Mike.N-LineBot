@@ -15,9 +15,9 @@ AI_Driver::AI_Driver(Motor &l_motor, Motor &r_motor, IR &r_sensor, IR &l_sensor)
   this -> l_sensor = l_sensor;  
 }
 
-void AI_Driver::init(){
-  l_motor.initServo();
-  r_motor.initServo();
+void AI_Driver::init(R_MOTOR_PIN, L_MOTOR_PIN){
+  r_motor.attach(R_MOTOR_PIN);
+  l_motor.attach(L_MOTOR_PIN);
   r_sensor.init();
   l_sensor.init();
 }

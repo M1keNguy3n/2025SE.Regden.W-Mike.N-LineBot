@@ -1,12 +1,20 @@
 #include "ir.h"
 
-IR::IR(byte pin_digital){
+IR::IR(byte pin_digital, byte pin_analog){
   this -> pin_digital = pin_digital;
-  state = digitalRead(pin_digital);
+  this -> pin_analog = pin_analog;
+}
+
+void IR::init(){
+  pinMode(pin_analog, INPUT);
+  state_analog = analogRead(pin_analog);
+  pinMode(pin_digital, INPUT);
+  state_digital = digitalRead(pin_digital);
 }
 
 void IR::init_digital(){
   pinMode(pin_digital, INPUT);
+  state_digital = digitalRead(pin_digital);
 }
 
 void IR::init_analog(){
@@ -14,11 +22,11 @@ void IR::init_analog(){
 }
 
 void IR::readStateDigital(){
-  state_digital = digitalRead(pin);
+  state_digital = digitalRead(pin_digital);
   return state_digital;
 }
 
 void IR::readStateAnalog(){
-  state_analog = analogRead(pin);
+  state_analog = analogRead(pin_analog);
   return state_analog;
 }
