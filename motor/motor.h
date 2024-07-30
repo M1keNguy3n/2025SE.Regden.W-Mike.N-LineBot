@@ -4,7 +4,7 @@
 #include <Servo.h>
 class Motor{
   private:
-    Servo &servo;
+    Servo servo;
     const int max = 2300;
     const int min = 700;
     const int stop = 1500;
