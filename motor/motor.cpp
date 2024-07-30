@@ -1,26 +1,56 @@
 #include "motor.h"
 
-Motor::Motor(Servo &servo){
+Motor::Motor(Servo &servo, unsigned long runtime){
   this-> servo = servo;
+  LastTimeRan = millis();
+  this-> runtime = runtime;
 }
 
 void Motor::fast_forward(){
-  servo.writeMicroseconds(max);
+  unsigned long timeNow = millis();
+  while (timeNow - LastTimeRan < runtime){
+    servo.writeMicroseconds(max);
+    timeNow = millis();
+  }
+  LastTimeRan = timeNow;
 }
 
 void Motor::fast_backward(){
-  servo.writeMicroseconds(min);
+  unsigned long timeNow = millis();
+  while (timeNow - LastTimeRan < runtime){
+    servo.writeMicroseconds(min);
+    timeNow = millis();
+  }
+  LastTimeRan = timeNow;
 }
 
 void Motor::stop_motor(){
-  servo.writeMicroseconds(stop);
+  unsigned long timeNow = millis();
+  while (timeNow - LastTimeRan < runtime){
+    servo.writeMicroseconds(stop);
+    timeNow = millis();
+  }
+  LastTimeRan = timeNow;
 }
 
 void Motor::slow_forward(){
-  servo.writeMicroseconds(stop + 200);
+  unsigned long timeNow = millis();
+  while (timeNow - LastTimeRan < runtime){
+    servo.writeMicroseconds(stop + 200);
+    timeNow = millis();
+  }
+  LastTimeRan = timeNow;
 }
 
 void Motor::slow_backward(){
-  servo.writeMicroseconds(stop - 200);
+  unsigned long timeNow = millis();
+  while (timeNow - LastTimeRan < runtime){
+    servo.writeMicroseconds(stop - 200);
+    timeNow = millis();
+  }
+  LastTimeRan = timeNow;
 }
 
+void Motor::test(){
+  servo.writeMicroseconds(min);
+}
