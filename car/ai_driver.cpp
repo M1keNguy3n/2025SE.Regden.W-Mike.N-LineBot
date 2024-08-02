@@ -1,4 +1,6 @@
 #include "ai_driver.h"
+#include "motor.h"
+#include "ir.h"
 
 AI_Driver::AI_Driver(Motor &l_motor, Motor &r_motor, IR &r_sensor, IR &c_sensor, IR &l_sensor){
   this -> l_motor = l_motor;
@@ -23,7 +25,7 @@ void AI_Driver::init(R_MOTOR_PIN, L_MOTOR_PIN){
 }
 
 void AI_Driver::forward(){
-  if (!(r_sensor.readStateDigital()) && (!(l_sensor.readStateDigital))){
+  if (!(r_sensor.readStateDigital()) && (!(l_sensor.readStateDigital()))){
     l_motor.fast_forward();
     r_motor.fast_forward();
   }
@@ -35,7 +37,7 @@ void AI_Driver::backward(){
 }
 
 void AI_Driver::turn_left(){
-  if (!(l_sensor.readStateDigital()) || (r_sensor.readStateDigital)){
+  if (!(l_sensor.readStateDigital()) || (r_sensor.readStateDigital())){
       l_motor.slow_forward();
       r_motor.fast_forward();
     }

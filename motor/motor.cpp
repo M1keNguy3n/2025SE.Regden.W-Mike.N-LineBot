@@ -53,4 +53,5 @@ void Motor::slow_backward(){
 
 void Motor::test(){
   servo.writeMicroseconds(min);
+  delay(50);
 }
