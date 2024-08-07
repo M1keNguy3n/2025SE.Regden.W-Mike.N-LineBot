@@ -1,5 +1,5 @@
-#define L_MOTOR_PIN 7
-#define R_MOTOR_PIN 8
+#define L_MOTOR_PIN 5
+#define R_MOTOR_PIN 6
 #include "motor.h"
 
 Servo r_servo;
@@ -15,6 +15,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  l_motor.test();
-  r_motor.test();
+  r_motor.fast_forward();
+  l_motor.fast_backward();
 }

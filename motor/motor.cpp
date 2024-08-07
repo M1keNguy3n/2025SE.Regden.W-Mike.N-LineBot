@@ -1,7 +1,8 @@
 #include "motor.h"
 
-Motor::Motor(Servo &servo, unsigned long runtime){
-  this-> servo = servo;
+Motor::Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime){
+  this-> r_servo = r_servo;
+  this-> l_servo = l_servo;
   LastTimeRan = millis();
   this-> runtime = runtime;
 }
@@ -9,7 +10,8 @@ Motor::Motor(Servo &servo, unsigned long runtime){
 void Motor::fast_forward(){
   unsigned long timeNow = millis();
   while (timeNow - LastTimeRan < runtime){
-    servo.writeMicroseconds(max);
+    l_servo.writeMicroseconds(2300);
+    r_servo.writeMicroseconds(700);
     timeNow = millis();
   }
   LastTimeRan = timeNow;
@@ -18,7 +20,8 @@ void Motor::fast_forward(){
 void Motor::fast_backward(){
   unsigned long timeNow = millis();
   while (timeNow - LastTimeRan < runtime){
-    servo.writeMicroseconds(min);
+    l_servo.writeMicroseconds(700);
+    r_servo.writeMicroseconds(2300);
     timeNow = millis();
   }
   LastTimeRan = timeNow;
@@ -52,6 +55,6 @@ void Motor::slow_backward(){
 }
 
 void Motor::test(){
-  servo.writeMicroseconds(min);
+  servo.write(100);
   delay(50);
 }
