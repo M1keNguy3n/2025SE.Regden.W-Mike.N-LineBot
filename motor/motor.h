@@ -12,7 +12,7 @@ class Motor{
     const int stop = 1500;
   public:
     Motor(){}
-    Motor(Servo &servo, unsigned long runtime);
+    Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime);
     void stop_motor();
     void fast_forward();
     void fast_backward();
