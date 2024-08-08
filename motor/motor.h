@@ -4,8 +4,9 @@
 #include <Servo.h>
 class Motor{
   private:
-    Servo servo;
-    unsigned long LastTimeRan;
+    Servo l_servo;
+    Servo r_servo;
+    const int turn_90 = 550;
     unsigned long runtime;
     const int max = 2300;
     const int min = 700;
