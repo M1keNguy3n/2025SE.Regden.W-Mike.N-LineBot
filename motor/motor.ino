@@ -8,11 +8,11 @@ Motor motor(l_servo, r_servo, 200);
 
 void setup() {
   // put your setup code here, to run once:
-  l_servo.attach(L_MOTOR_PIN);
-  r_servo.attach(R_MOTOR_PIN);
+  motor.init(L_MOTOR_PIN, R_MOTOR_PIN);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  motor.fast_forward();
+  motor.turn_left();
   motor.fast_forward();
 }

@@ -18,21 +18,21 @@ void loop() {
   //forward
   l_motor.writeMicroseconds(2300);
   r_motor.writeMicroseconds(700);
-  delay(3000);
+  delay(50);
   //180 clockwise
   //l_motor.writeMicroseconds(2300);
   //r_motor.writeMicroseconds(2300);
   //delay(1030);
   //90 clockwise
-  l_motor.writeMicroseconds(2300);
-  r_motor.writeMicroseconds(2300);
-  delay(550);
+  //l_motor.writeMicroseconds(2300);
+  //r_motor.writeMicroseconds(2300);
+  //delay(550);
   //90 anticlockwise
-  l_motor.writeMicroseconds(700);
-  r_motor.writeMicroseconds(700);
-  delay(550);
+  //l_motor.writeMicroseconds(700);
+  //r_motor.writeMicroseconds(700);
+  //delay(550);
   //discharge
-  l_motor.writeMicroseconds(2300);
-  r_motor.writeMicroseconds(700);
-  delay(200);
+  //l_motor.writeMicroseconds(2300);
+  //r_motor.writeMicroseconds(700);
+  //delay(200);
 }
