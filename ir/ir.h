@@ -13,7 +13,7 @@ class IR{
     void init_digital();
     void init_analog();
     void init();
-    void readStateDigital();
-    void readStateAnalog();
+    byte readStateDigital();
+    unsigned long readStateAnalog();
 };
 #endif

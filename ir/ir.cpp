@@ -21,12 +21,12 @@ void IR::init_analog(){
   pinMode(pin_analog, INPUT);
 }
 
-void IR::readStateDigital(){
+byte IR::readStateDigital(){
   state_digital = digitalRead(pin_digital);
   return state_digital;
 }
 
-void IR::readStateAnalog(){
+unsigned long IR::readStateAnalog(){
   state_analog = analogRead(pin_analog);
   return state_analog;
 }

@@ -16,8 +16,8 @@ class Motor{
     void stop_motor();
     void fast_forward();
     void fast_backward();
-    void slow_forward();
-    void slow_backward();
+    void turn_left();
+    void turn_right();
     void test();
 };
 #endif

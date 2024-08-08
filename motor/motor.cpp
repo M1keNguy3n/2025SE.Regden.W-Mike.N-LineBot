@@ -30,31 +30,35 @@ void Motor::fast_backward(){
 void Motor::stop_motor(){
   unsigned long timeNow = millis();
   while (timeNow - LastTimeRan < runtime){
-    servo.writeMicroseconds(stop);
+    l_servo.writeMicroseconds(1500);
+    r_servo.writeMicroseconds(1500);
     timeNow = millis();
   }
   LastTimeRan = timeNow;
 }
 
-void Motor::slow_forward(){
+void Motor::turn_left(){
   unsigned long timeNow = millis();
   while (timeNow - LastTimeRan < runtime){
-    servo.writeMicroseconds(stop + 200);
+    l_servo.writeMicroseconds(2100);
+    r_servo.writeMicroseconds(700);
     timeNow = millis();
   }
   LastTimeRan = timeNow;
 }
 
-void Motor::slow_backward(){
+void Motor::turn_right(){
   unsigned long timeNow = millis();
   while (timeNow - LastTimeRan < runtime){
-    servo.writeMicroseconds(stop - 200);
+    l_servo.writeMicroseconds(2300);
+    r_servo.writeMicroseconds(900);
     timeNow = millis();
   }
   LastTimeRan = timeNow;
 }
 
 void Motor::test(){
-  servo.write(100);
+  l_servo.writeMicroseconds(2300);
+  r_servo.writeMicroseconds(900);
   delay(50);
 }

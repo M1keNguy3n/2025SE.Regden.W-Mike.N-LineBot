@@ -3,9 +3,8 @@
 #include "motor.h"
 
 Servo r_servo;
-Motor r_motor(r_servo, 50);
 Servo l_servo;
-Motor l_motor(l_servo, 50);
+Motor motor(l_servo, r_servo, 50);
 
 void setup() {
   // put your setup code here, to run once:
@@ -15,6 +14,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  r_motor.fast_forward();
-  l_motor.fast_backward();
+  motor.fast_forward();
 }
