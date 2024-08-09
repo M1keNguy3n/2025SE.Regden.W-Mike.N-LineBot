@@ -21,5 +21,8 @@ class Motor{
     void turn_left();
     void turn_right();
     void test();
+    void adjust_left();
+    void adjust_right();
 };
+
 #endif

@@ -20,8 +20,8 @@ void Motor::fast_forward(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   while (timeNow - start < runtime){
-    l_servo.writeMicroseconds(2300);
-    r_servo.writeMicroseconds(700);
+    l_servo.writeMicroseconds(1900);
+    r_servo.writeMicroseconds(1100);
     delay(50);
     timeNow = millis();
   }
@@ -59,6 +59,17 @@ void Motor::turn_left(){
   }
 }
 
+void Motor::adjust_left(){
+  unsigned long start = millis();
+  unsigned long timeNow = millis();
+  while (timeNow - start < runtime){
+    l_servo.writeMicroseconds(1500);
+    r_servo.writeMicroseconds(1500);
+    delay(50);
+    timeNow = millis();
+  }
+}
+
 void Motor::turn_right(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
@@ -70,8 +81,25 @@ void Motor::turn_right(){
   }
 }  
 
+void Motor::adjust_right(){
+  unsigned long start = millis();
+  unsigned long timeNow = millis();
+  while (timeNow - start < runtime){
+    l_servo.writeMicroseconds(1500);
+    r_servo.writeMicroseconds(1500);
+    delay(50);
+    timeNow = millis();
+  }
+} 
+
 void Motor::test(){
-  l_servo.writeMicroseconds(2300);
-  r_servo.writeMicroseconds(700);
-  delay(50);
+  unsigned long start = millis();
+  unsigned long timeNow = millis();
+  while (timeNow - start < 1000){
+    l_servo.writeMicroseconds(850);
+    delay(50);
+    timeNow = millis();
+  }
+  l_servo.writeMicroseconds(950);
+  delay(2000);
 }

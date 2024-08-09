@@ -12,7 +12,5 @@ void setup() {
 }
 
 void loop() {
-  motor.fast_forward();
-  motor.turn_left();
-  motor.fast_forward();
+  motor.test();
 }
