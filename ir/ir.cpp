@@ -19,6 +19,7 @@ void IR::init_digital(){
 
 void IR::init_analog(){
   pinMode(pin_analog, INPUT);
+  state_analog = analogRead(pin_analog);
 }
 
 byte IR::readStateDigital(){
@@ -29,4 +30,13 @@ byte IR::readStateDigital(){
 unsigned long IR::readStateAnalog(){
   state_analog = analogRead(pin_analog);
   return state_analog;
+}
+
+bool IR::lineDetected(){
+  if (state_analog < 35){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
