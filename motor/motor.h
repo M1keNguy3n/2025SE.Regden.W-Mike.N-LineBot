@@ -12,6 +12,9 @@ class Motor{
     const int l_fast_clockwise = 1500;
     const int l_fast_counterclockwise = 700;
     const int turn_90 = 520;
+    const int r_stop = 1500;
+    const int r_fast_clockwise = 700;
+    const int r_fast_counterclockwise = 2300;
     unsigned long runtime;
   public:
     Motor(){}

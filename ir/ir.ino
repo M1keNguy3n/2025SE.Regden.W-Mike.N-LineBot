@@ -1,6 +1,7 @@
 #include "ir.h"
 #define IR_PIN_DIGITAL 5
 #define IR_PIN_ANALOG A0
+
 IR r_ir(IR_PIN_DIGITAL, IR_PIN_ANALOG);
 void setup() {
   // put your setup code here, to run once:
@@ -17,5 +18,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  Serial.println(r_ir.lineDetected());
+  Serial.println(r_ir.readStateAnalog());
 }

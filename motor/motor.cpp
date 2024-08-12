@@ -95,11 +95,16 @@ void Motor::adjust_right(){
 void Motor::test(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  while (timeNow - start < 1000){
-    l_servo.writeMicroseconds(850);
-    delay(50);
-    timeNow = millis();
-  }
-  l_servo.writeMicroseconds(950);
+  r_servo.writeMicroseconds(1900);
+  l_servo.writeMicroseconds(925);
+  delay(1000);
+  r_servo.writeMicroseconds(1500);
+  l_servo.writeMicroseconds(925);
+  delay(500);
+  r_servo.writeMicroseconds(2300);
+  l_servo.writeMicroseconds(925);
   delay(2000);
+  r_servo.writeMicroseconds(1500);
+  l_servo.writeMicroseconds(925);
+  delay(500);
 }
