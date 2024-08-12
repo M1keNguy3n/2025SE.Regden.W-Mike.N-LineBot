@@ -15,5 +15,6 @@ class IR{
     void init();
     byte readStateDigital();
     unsigned long readStateAnalog();
+    bool lineDetected();
 };
 #endif

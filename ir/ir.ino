@@ -17,7 +17,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  Serial.write(r_ir.readStateDigital());
-  r_ir.readStateDigital();
-  r_ir.readStateAnalog();
+  Serial.println(r_ir.lineDetected());
 }

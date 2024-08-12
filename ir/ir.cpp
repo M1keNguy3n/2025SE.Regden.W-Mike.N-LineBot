@@ -30,3 +30,12 @@ unsigned long IR::readStateAnalog(){
   state_analog = analogRead(pin_analog);
   return state_analog;
 }
+
+bool IR::lineDetected(){
+  if (readStateAnalog() < 36){
+    return false;
+  }
+  else if (readStateAnalog() > 36 & readStateAnalog() < 55) {
+    return true;
+  }
+}
