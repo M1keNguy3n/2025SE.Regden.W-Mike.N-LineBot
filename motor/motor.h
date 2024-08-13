@@ -8,8 +8,8 @@ class Motor{
     Servo r_servo;
     byte l_pin;
     byte r_pin;
-    const int l_stop = 925;
-    const int l_fast_clockwise = 1500;
+    const int l_stop = 1500;
+    const int l_fast_clockwise = 2300;
     const int l_fast_counterclockwise = 700;
     const int turn_90 = 520;
     const int r_stop = 1500;
