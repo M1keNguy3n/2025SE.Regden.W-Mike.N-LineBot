@@ -16,23 +16,27 @@ void Motor::init(byte l_pin, byte r_pin){
   r_servo.attach(r_pin);
 }
 
-void Motor::fast_forward(){
+void Motor::forward(long speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
+  long l_speed = set_l_speed(speed);
+  long r_speed = set_r_speed(speed);
   while (timeNow - start < runtime){
-    l_servo.writeMicroseconds(1900);
-    r_servo.writeMicroseconds(1100);
-    delay(50);
+    l_servo.writeMicroseconds(l_speed);
+    r_servo.writeMicroseconds(r_speed);
+    delay(10);
     timeNow = millis();
   }
 }
 
-void Motor::fast_backward(){
+void Motor::backward(long speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
+  long l_speed = abs(set_l_speed(speed)-1500) + 1500;
+  long r_speed = abs(set_l_speed(speed)-1500) + 1500;
   while (timeNow - start < runtime){
-    l_servo.writeMicroseconds(700);
-    r_servo.writeMicroseconds(2300);
+    l_servo.writeMicroseconds(l_max_counterclockwise);
+    r_servo.writeMicroseconds(r_max_counterclockwise);
     delay(50);
     timeNow = millis();
   }
@@ -59,12 +63,12 @@ void Motor::turn_left(){
   }
 }
 
-void Motor::adjust_left(){
+void Motor::adjust_left(long r_speed, long l_speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   while (timeNow - start < runtime){
-    l_servo.writeMicroseconds(1500);
-    r_servo.writeMicroseconds(1500);
+    l_servo.writeMicroseconds(l_speed);
+    r_servo.writeMicroseconds(r_speed);
     delay(50);
     timeNow = millis();
   }
@@ -81,7 +85,7 @@ void Motor::turn_right(){
   }
 }  
 
-void Motor::adjust_right(){
+void Motor::adjust_right(long r_speed, long l_speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   while (timeNow - start < runtime){
@@ -95,11 +99,18 @@ void Motor::adjust_right(){
 void Motor::test(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  while (timeNow - start < 1000){
-    l_servo.writeMicroseconds(850);
-    delay(50);
-    timeNow = millis();
-  }
-  l_servo.writeMicroseconds(950);
-  delay(2000);
+  r_servo.writeMicroseconds(1500);
+  l_servo.writeMicroseconds(1580);
+  delay(1000);
+  r_servo.writeMicroseconds(2300);
+  l_servo.writeMicroseconds(1500);
+  delay(500);
+}
+
+long Motor::set_r_speed(long percent){
+  return map(percent, 0, 100, 1500, 700);
+}
+
+long Motor::set_l_speed(long percent){
+  return map(percent, 0, 100, 1500, 2300);
 }

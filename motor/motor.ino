@@ -13,5 +13,5 @@ void setup() {
 }
 
 void loop() {
-  motor.forward(15);
+  motor.test();
 }

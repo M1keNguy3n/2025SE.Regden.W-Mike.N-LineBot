@@ -5,15 +5,14 @@
 
 class AI_Driver{
   private:
-    Motor l_motor;
-    Motor r_motor;
+    Motor motor;
     IR r_sensor;
     IR c_sensor;
     IR l_sensor;
   public:
     AI_Driver(){};
-    AI_Driver(Motor &l_motor, Motor &r_motor, IR &r_sensor, IR &c_sensor, IR &l_sensor);
-    AI_Driver(Motor &l_motor, Motor &r_motor, IR &r_sensor, IR &l_sensor);
+    AI_Driver(Motor &motor, IR &r_sensor, IR &c_sensor, IR &l_sensor);
+    AI_Driver(Motor &motor, IR &r_sensor, IR &l_sensor);
     void init();
     void forward();
     void backward();

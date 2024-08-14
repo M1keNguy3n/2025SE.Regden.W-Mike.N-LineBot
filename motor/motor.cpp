@@ -100,7 +100,7 @@ void Motor::test(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   r_servo.writeMicroseconds(1500);
-  l_servo.writeMicroseconds(2300);
+  l_servo.writeMicroseconds(1580);
   delay(1000);
   r_servo.writeMicroseconds(2300);
   l_servo.writeMicroseconds(1500);
