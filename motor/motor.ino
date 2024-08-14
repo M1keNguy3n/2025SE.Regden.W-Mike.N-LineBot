@@ -4,7 +4,7 @@
 
 Servo r_servo;
 Servo l_servo;
-Motor motor(l_servo, r_servo, 50);
+Motor motor(l_servo, r_servo, 10);
 
 void setup() {
   // put your setup code here, to run once:
@@ -13,5 +13,5 @@ void setup() {
 }
 
 void loop() {
-  motor.test();
+  motor.forward(7);
 }

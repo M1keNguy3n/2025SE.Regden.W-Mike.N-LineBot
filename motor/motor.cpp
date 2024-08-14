@@ -99,12 +99,12 @@ void Motor::adjust_right(long r_speed, long l_speed){
 void Motor::test(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  r_servo.writeMicroseconds(1500);
-  l_servo.writeMicroseconds(1580);
-  delay(1000);
-  r_servo.writeMicroseconds(2300);
+  r_servo.writeMicroseconds(1600);
   l_servo.writeMicroseconds(1500);
-  delay(500);
+  delay(10);
+  r_servo.writeMicroseconds(1500);
+  l_servo.writeMicroseconds(1400);
+  delay(10);
 }
 
 long Motor::set_r_speed(long percent){
