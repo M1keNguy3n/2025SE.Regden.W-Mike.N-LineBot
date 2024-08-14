@@ -19,6 +19,7 @@ void IR::init_digital(){
 
 void IR::init_analog(){
   pinMode(pin_analog, INPUT);
+  state_analog = analogRead(pin_analog);
 }
 
 byte IR::readStateDigital(){
