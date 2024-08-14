@@ -19,5 +19,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  car.update(30, 30, 30); 
+  car.forward(7); 
 }

@@ -11,7 +11,7 @@ void Motor::init(byte l_pin, byte r_pin){
   r_servo.attach(r_pin);
 }
 
-void Motor::forward(int speed){
+void Motor::backward(int speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   int l_speed = set_l_speed(speed);
@@ -24,7 +24,7 @@ void Motor::forward(int speed){
   }
 }
 
-void Motor::backward(int speed){
+void Motor::forward(int speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   long l_speed = abs(set_l_speed(speed)-1500) + 1500;

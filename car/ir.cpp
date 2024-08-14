@@ -54,9 +54,3 @@ bool IR::r_lineDetected(){
   }
 }
 
-
-
-\\right on line = 47
-\\right off line = 31
-\\left off line = 45
-\\right on line = 55
