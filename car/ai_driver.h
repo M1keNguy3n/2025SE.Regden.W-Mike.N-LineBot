@@ -18,5 +18,6 @@ class AI_Driver{
     void backward();
     void turn_left();
     void turn_right();
+    void update();
 }
 #endif

@@ -7,12 +7,11 @@
 #include "ai_driver.h"
 
 Servo r_servo;
-Motor r_motor(r_servo, 100);
 Servo l_servo;
-Motor l_motor(l_servo, 100);
+Motor motor(l_servo, r_servo, 50);
 IR r_ir(R_IR_PIN_DIGITAL, R_IR_PIN_ANALOG);
 IR l_ir(L_IR_PIN_DIGITAL, L_IR_PIN_ANALOG);
-AI_Driver car(l_motor, r_motor, r_sensor, l_sensor);
+AI_Driver car(motor, r_sensor, l_sensor);
 
 void setup() {
   // put your setup code here, to run once:
@@ -21,7 +20,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  car.forward();
-  car.turn_left();
-  car.turn_right();
+  car.update();
 }
