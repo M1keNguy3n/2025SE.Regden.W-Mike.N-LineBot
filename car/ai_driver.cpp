@@ -22,9 +22,7 @@ void AI_Driver::init(byte R_MOTOR_PIN, byte L_MOTOR_PIN){
 }
 
 void AI_Driver::forward(long speed){
-  if (!(r_sensor.readStateDigital()) && (!(l_sensor.readStateDigital()))){
-    motor.forward(speed);
-  }
+  motor.forward(speed);
 }
 
 void AI_Driver::backward(long speed){
@@ -32,31 +30,33 @@ void AI_Driver::backward(long speed){
 }
 
 void AI_Driver::turn_left(){
-  if (!(l_sensor.lineDetected()) || (r_sensor.lineDetected())){
+  if (!(l_sensor.l_lineDetected()) || (r_sensor.r_lineDetected())){
       motor.turn_left();
     }
 }
 
 void AI_Driver::turn_right(){
-  if (!(r_sensor.lineDetected()) || (l_sensor.lineDetected())){
+  if (!(r_sensor.r_lineDetected()) || (l_sensor.l_lineDetected())){
       motor.turn_right();
     }
 }
 
 void AI_Driver::adjust_right(long r_speed, long l_speed){
-  if (!(r_sensor.lineDetected()) || (l_sensor.lineDetected())){
-      motor.adjust_left(r_speed, l_speed);
-  }
+  motor.adjust_left(r_speed, l_speed);
 }
 
 void AI_Driver::adjust_left(long r_speed, long l_speed){
-  if (!(l_sensor.lineDetected()) || (r_sensor.lineDetected())){
-      motor.adjust_left(r_speed, l_speed);
-  }
+  motor.adjust_left(r_speed, l_speed);
 }
 
 void AI_Driver::update(long speed, long r_speed, long l_speed){
-  motor.forward(speed);
-  motor.adjust_right(r_speed, l_speed);
-  motor.adjust_left(r_speed, l_speed);
+  if (!(r_sensor.r_lineDetected()) && (!(l_sensor.l_lineDetected()))){
+    motor.forward(speed);
+  }
+  if (!(r_sensor.r_lineDetected()) || (l_sensor.l_lineDetected())){
+    motor.adjust_right(r_speed, l_speed);
+  }
+  if (!(l_sensor.l_lineDetected()) || (r_sensor.r_lineDetected())){
+    motor.adjust_left(r_speed, l_speed);
+  }
 }

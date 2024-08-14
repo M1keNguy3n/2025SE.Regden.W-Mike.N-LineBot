@@ -5,6 +5,10 @@ IR::IR(byte pin_digital, byte pin_analog){
   this -> pin_analog = pin_analog;
 }
 
+IR::IR(byte pin_analog){
+  this -> pin_analog = pin_analog;
+}
+
 void IR::init(){
   pinMode(pin_analog, INPUT);
   state_analog = analogRead(pin_analog);
@@ -19,6 +23,7 @@ void IR::init_digital(){
 
 void IR::init_analog(){
   pinMode(pin_analog, INPUT);
+  state_analog = analogRead(pin_analog);
 }
 
 byte IR::readStateDigital(){
@@ -31,7 +36,7 @@ unsigned long IR::readStateAnalog(){
   return state_analog;
 }
 
-bool IR::lineDetected(){
+bool IR::l_lineDetected(){
   if (readStateAnalog() < 36){
     return false;
   }
@@ -39,3 +44,19 @@ bool IR::lineDetected(){
     return true;
   }
 }
+
+bool IR::r_lineDetected(){
+  if (readStateAnalog() < 42){
+    return false;
+  }
+  else if (readStateAnalog() > 47 & readStateAnalog() < 55) {
+    return true;
+  }
+}
+
+
+
+\\right on line = 47
+\\right off line = 31
+\\left off line = 45
+\\right on line = 55

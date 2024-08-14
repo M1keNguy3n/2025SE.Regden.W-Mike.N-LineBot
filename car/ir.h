@@ -9,12 +9,14 @@ class IR{
     unsigned long state_analog;
   public:
     IR(){} //do not use
+    IR(byte pin_analog);
     IR(byte pin_digital, byte pin_analog);
     void init_digital();
     void init_analog();
     void init();
     byte readStateDigital();
     unsigned long readStateAnalog();
-    bool lineDetected();
+    bool l_lineDetected();
+    bool r_lineDetected();
 };
 #endif
