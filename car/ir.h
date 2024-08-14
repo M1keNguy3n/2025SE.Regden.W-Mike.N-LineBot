@@ -13,7 +13,8 @@ class IR{
     void init_digital();
     void init_analog();
     void init();
-    unsigned long readStateDigital();
+    byte readStateDigital();
     unsigned long readStateAnalog();
+    bool lineDetected();
 };
 #endif

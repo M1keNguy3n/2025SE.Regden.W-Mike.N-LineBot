@@ -2,22 +2,33 @@
 #define MOTOR_H
 #include <Arduino.h>
 #include <Servo.h>
-class Motor {
+class Motor{
   private:
-    Servo servo;
-    unsigned long LastTimeRan;
+    Servo l_servo;
+    Servo r_servo;
+    byte l_pin;
+    byte r_pin;
+    const int l_stop = 925;
+    const int l_fast_clockwise = 1500;
+    const int l_fast_counterclockwise = 700;
+    const int r_stop = 1500;
+    const int r_fast_clockwise = 2300;
+    const int r_fast_counterclockwise = 700;
+    const int turn_90 = 520;
     unsigned long runtime;
-    const int max = 2300;
-    const int min = 700;
-    const int stop = 1500;
   public:
     Motor(){}
-    Motor(Servo &servo, unsigned long runtime);
+    Motor(Servo &l_servo, Servo &r_servo);
+    Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime);
+    void init(byte l_pin, byte r_pin);
     void stop_motor();
     void fast_forward();
     void fast_backward();
-    void slow_forward();
-    void slow_backward();
+    void turn_left();
+    void turn_right();
     void test();
+    void adjust_left();
+    void adjust_right();
 };
+
 #endif
