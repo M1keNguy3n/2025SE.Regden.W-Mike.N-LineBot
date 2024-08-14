@@ -1,10 +1,5 @@
 #include "motor.h"
 
-Motor::Motor(Servo &l_servo, Servo &r_servo){
-  this-> r_servo = r_servo;
-  this-> l_servo = l_servo;
-}
-
 Motor::Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime){
   this-> r_servo = r_servo;
   this-> l_servo = l_servo;
