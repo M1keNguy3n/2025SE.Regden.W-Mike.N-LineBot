@@ -32,16 +32,17 @@ byte IR::readStateDigital(){
 }
 
 unsigned long IR::readStateAnalog(){
-  state_analog = analogRead(pin_analog);
-  delay(5);
-  return state_analog;
+  //returns the value from the ir.
+  return analogRead(pin_analog);
 }
 
 bool IR::l_lineDetected(){
+  //if the value is between 90 and 93, return true.
   return !(readStateAnalog() < 90 || readStateAnalog() > 93);
 }
 
 bool IR::r_lineDetected(){
+  //if the value is between 98 and 107, return true.
   return !(readStateAnalog() < 98 || readStateAnalog() > 107);
 }
 

@@ -21,14 +21,6 @@ void AI_Driver::init(byte R_MOTOR_PIN, byte L_MOTOR_PIN){
   l_sensor.init();
 }
 
-void AI_Driver::forward(long speed){
-  motor.forward(speed);
-}
-
-void AI_Driver::backward(long speed){
-  motor.backward(speed);
-}
-
 void AI_Driver::turn_left(){
   if (!(l_sensor.l_lineDetected()) || (r_sensor.r_lineDetected())){
       motor.turn_left();
