@@ -19,12 +19,14 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  Serial.print(l_ir.readStateAnalog());
+  /*
+  Serial.print(r_ir.readStateAnalog());
   Serial.print(" ");
-  Serial.print((r_ir.readStateAnalog() < 40 || r_ir.readStateAnalog() > 45));
-  Serial.print((l_ir.readStateAnalog() < 90 || l_ir.readStateAnalog() > 97));
+  Serial.print(!(r_ir.readStateAnalog() <= 43 || r_ir.readStateAnalog() > 52));
+  Serial.print(!(l_ir.readStateAnalog() < 82 || l_ir.readStateAnalog() > 89));
   Serial.print(" ");
-  Serial.println(r_ir.readStateAnalog());
- 
+  Serial.println(l_ir.readStateAnalog());
+  delay(50);
+  */
+  motor.test();
 }

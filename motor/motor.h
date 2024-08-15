@@ -22,15 +22,15 @@ class Motor{
     Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime);
     void init(byte l_pin, byte r_pin);
     void stop_motor();
-    void forward(long speed);
-    void backward(long speed);
-    long set_r_speed(long percent);
-    long set_l_speed(long percent);
+    void forward(int speed);
+    void backward(int speed);
+    int set_r_speed(int percent);
+    int set_l_speed(int percent);
     void turn_left();
     void turn_right();
     void test();
-    void adjust_left(long r_speed, long l_speed);
-    void adjust_right(long r_speed, long l_speed);
+    void adjust_left(int r_speed, int l_speed);
+    void adjust_right(int r_speed, int l_speed);
 };
 
 #endif

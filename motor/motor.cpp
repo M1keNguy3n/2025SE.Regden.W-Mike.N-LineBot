@@ -16,11 +16,11 @@ void Motor::init(byte l_pin, byte r_pin){
   r_servo.attach(r_pin);
 }
 
-void Motor::forward(long speed){
+void Motor::forward(int speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  long l_speed = set_l_speed(speed);
-  long r_speed = set_r_speed(speed);
+  int l_speed = set_l_speed(speed);
+  int r_speed = set_r_speed(speed);
   while (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
     r_servo.writeMicroseconds(r_speed);
@@ -29,11 +29,11 @@ void Motor::forward(long speed){
   }
 }
 
-void Motor::backward(long speed){
+void Motor::backward(int speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  long l_speed = abs(set_l_speed(speed)-1500) + 1500;
-  long r_speed = abs(set_l_speed(speed)-1500) + 1500;
+  int l_speed = abs(set_l_speed(speed)-1500) + 1500;
+  int r_speed = abs(set_l_speed(speed)-1500) + 1500;
   while (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_max_counterclockwise);
     r_servo.writeMicroseconds(r_max_counterclockwise);
@@ -63,7 +63,7 @@ void Motor::turn_left(){
   }
 }
 
-void Motor::adjust_left(long r_speed, long l_speed){
+void Motor::adjust_left(int r_speed, int l_speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   while (timeNow - start < runtime){
@@ -85,7 +85,7 @@ void Motor::turn_right(){
   }
 }  
 
-void Motor::adjust_right(long r_speed, long l_speed){
+void Motor::adjust_right(int r_speed, int l_speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   while (timeNow - start < runtime){
@@ -97,23 +97,18 @@ void Motor::adjust_right(long r_speed, long l_speed){
 } 
 
 void Motor::test(){
-  unsigned long start = millis();
-  unsigned long timeNow = millis();
-  r_servo.writeMicroseconds(1420);
-  l_servo.writeMicroseconds(1500);
-  delay(10);
-  r_servo.writeMicroseconds(1500);
-  l_servo.writeMicroseconds(1400);
-  delay(10);
+  r_servo.writeMicroseconds(1470);
+  l_servo.writeMicroseconds(1530);
+  delay(500);
 }
 
-int Motor::set_r_speed(long percent){
+int Motor::set_r_speed(int percent){
   int val = 0;
   val = static_cast<int>(map(percent, 0, 100, 1500, 700));
   return val;
 }
 
-int Motor::set_l_speed(long percent){
+int Motor::set_l_speed(int percent){
   int val = 0;
   val = static_cast<int>(map(percent, 0, 100, 1500, 2300));
   return val;

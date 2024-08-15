@@ -74,7 +74,7 @@ void Motor::adjust_left(int r_speed, int l_speed){
   while (timeNow - start < runtime){
     l_servo.writeMicroseconds(1500);
     r_servo.writeMicroseconds(r_speed);
-    delay(50);
+    delay(10);
     timeNow = millis();
   }
 }
@@ -106,11 +106,8 @@ void Motor::adjust_right(int r_speed, int l_speed){
 void Motor::test(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  r_servo.writeMicroseconds(1500);
-  l_servo.writeMicroseconds(1580);
-  delay(1000);
-  r_servo.writeMicroseconds(2300);
-  l_servo.writeMicroseconds(1500);
+  l_servo.writeMicroseconds(1800);
+  r_servo.writeMicroseconds(1300);
   delay(500);
 }
 

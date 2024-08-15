@@ -13,6 +13,5 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(motor.set_r_speed(10));
-  motor.forward(10);
+  motor.test();
 }
