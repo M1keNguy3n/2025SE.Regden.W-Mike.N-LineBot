@@ -28,8 +28,8 @@ class Motor{
     void turn_left();
     void turn_right();
     void test();
-    void adjust_left(int r_speed, int l_speed);
-    void adjust_right(int r_speed, int l_speed);
+    void adjust_left(int r_speed);
+    void adjust_right(int l_speed);
 };
 
 #endif

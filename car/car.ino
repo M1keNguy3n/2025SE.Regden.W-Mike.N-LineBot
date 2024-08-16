@@ -16,6 +16,7 @@ void setup() {
   // put your setup code here, to run once:
   car.init(L_MOTOR_PIN, R_MOTOR_PIN);
   Serial.begin(9600);
+  delay(2000);
 }
 
 void loop() {
@@ -29,5 +30,5 @@ void loop() {
   delay(50);
   */
 
-  car.test();
+  car.update(15, 15);
 }
