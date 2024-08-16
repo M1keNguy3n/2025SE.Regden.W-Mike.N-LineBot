@@ -11,29 +11,29 @@ void Motor::init(byte l_pin, byte r_pin){
   r_servo.attach(r_pin);
 }
 
-void Motor::forward(int speed){
+void Motor::forward(){
   //start timer
   unsigned long start = millis();
   unsigned long timeNow = millis();
   //assign speeds to each motor
-  int l_speed = set_l_speed(speed);
-  int r_speed = set_r_speed(speed);
+  int l_speed = 1300;
+  int r_speed = 1560;
   //moves forward until runtime ends.
   while (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
     r_servo.writeMicroseconds(r_speed);
-    delay(10);
+    delay(20);
     timeNow = millis();
   }
 }
 
-void Motor::backward(int speed){
+void Motor::backward(){
   //start timer
   unsigned long start = millis();
   unsigned long timeNow = millis();
   //the reverse speed is the same distance away from the midpoint as the forward speed
-  int l_speed = abs(set_l_speed(speed)-1500) + 1500;
-  int r_speed = abs(set_r_speed(speed)-1500) + 1500;
+  int l_speed = 1560;
+  int r_speed = 1440;
   while (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
     r_servo.writeMicroseconds(r_speed);
@@ -104,9 +104,10 @@ void Motor::adjust_right(int r_speed, int l_speed){
 } 
 
 void Motor::test(){
+  Serial.println("Test running.");
   l_servo.writeMicroseconds(1440);
   r_servo.writeMicroseconds(1560);
-  delay(50);
+  delay(500);
 }
 
 int Motor::set_r_speed(int percent){

@@ -21,8 +21,8 @@ class Motor{
     Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime);
     void init(byte l_pin, byte r_pin);
     void stop_motor();
-    void forward(int speed);
-    void backward(int speed);
+    void forward();
+    void backward();
     int set_r_speed(int percent);
     int set_l_speed(int percent);
     void turn_left();

@@ -7,7 +7,7 @@
 
 Servo r_servo;
 Servo l_servo;
-Motor motor(l_servo, r_servo, 100);
+Motor motor(l_servo, r_servo, 60);
 IR r_ir(R_IR_PIN_ANALOG);
 IR l_ir(L_IR_PIN_ANALOG);
 AI_Driver car(motor, r_ir, l_ir);
@@ -28,5 +28,6 @@ void loop() {
   Serial.println(l_ir.readStateAnalog());
   delay(50);
   */
-  motor.test();
+
+  car.test();
 }

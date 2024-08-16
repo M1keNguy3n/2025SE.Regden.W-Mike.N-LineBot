@@ -5,7 +5,7 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-class AI_Driver{
+class AI_Driver: public Motor, public IR{
   private:
     Motor motor;
     IR r_sensor;

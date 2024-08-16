@@ -5,12 +5,13 @@
  *
  * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-uno-r4-led-matrix-displays-number-character
  */
-
+#include "ArduinoGraphics.h"
 #include "Arduino_LED_Matrix.h"
 #include "fonts.h"
+
 ArduinoLEDMatrix matrix;
 
-uint32_t frame[8][12] = {
+uint8_t frame[8][12] = {
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -29,6 +30,19 @@ void setup() {
   matrix.begin();
 }
 
+void loop() {
+  clear_frame();
+  add_to_frame('A', 0);
+  add_to_frame('5', 6);
+  display_frame();
+  delay(1000);
+
+  clear_frame();
+  add_to_frame('7', 0);
+  add_to_frame('F', 6);
+  display_frame();
+  delay(1000);
+}
 
 void clear_frame() {
   for (int row = 0; row < 8; row++) {
@@ -44,7 +58,7 @@ void display_frame() {
 
 
 void add_to_frame(char c, int pos) {
-  int index = 0;
+  int index = -1;
   if (c >= '0' && c <= '9')
     index = c - '0';
   else if (c >= 'A' && c <= 'Z')
@@ -61,18 +75,3 @@ void add_to_frame(char c, int pos) {
     }
   }
 }
-
-void loop() {
-  clear_frame();
-  add_to_frame('0', 0);
-  add_to_frame('A', 6);
-  display_frame();
-  delay(1000);
-
-  clear_frame();
-  add_to_frame('0', 0);
-  add_to_frame('F', 6);
-  display_frame();
-  delay(1000);
-}
-
