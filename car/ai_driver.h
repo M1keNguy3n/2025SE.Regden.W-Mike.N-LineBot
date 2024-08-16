@@ -23,5 +23,6 @@ class AI_Driver{
     void update(long speed, long r_speed, long l_speed);
     void adjust_right(long r_speed, long l_speed);
     void adjust_left(long r_speed, long l_speed);
+    void test();
 };
 #endif

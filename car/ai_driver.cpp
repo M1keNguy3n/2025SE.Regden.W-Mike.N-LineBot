@@ -56,3 +56,7 @@ void AI_Driver::update(long speed, long r_speed, long l_speed){
     motor.backward(speed);
   }
 }
+
+void AI_Driver::test(){
+  motor.test();
+}

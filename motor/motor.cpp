@@ -97,8 +97,8 @@ void Motor::adjust_right(int r_speed, int l_speed){
 } 
 
 void Motor::test(){
-  r_servo.writeMicroseconds(1470);
-  l_servo.writeMicroseconds(1530);
+  r_servo.writeMicroseconds(1440);
+  l_servo.writeMicroseconds(1560);
   delay(500);
 }
 

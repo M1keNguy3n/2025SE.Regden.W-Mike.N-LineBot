@@ -104,21 +104,19 @@ void Motor::adjust_right(int r_speed, int l_speed){
 } 
 
 void Motor::test(){
-  unsigned long start = millis();
-  unsigned long timeNow = millis();
-  l_servo.writeMicroseconds(1800);
-  r_servo.writeMicroseconds(1300);
-  delay(500);
+  l_servo.writeMicroseconds(1440);
+  r_servo.writeMicroseconds(1560);
+  delay(50);
 }
 
 int Motor::set_r_speed(int percent){
   int val = 0;
-  val = static_cast<int>(map(percent, 0, 100, 1500, 2300));
+  val = static_cast<int>(map(percent, 0, 100, 1500, 700));
   return val;
 }
 
 int Motor::set_l_speed(int percent){
   int val = 0;
-  val = static_cast<int>(map(percent, 0, 100, 1500, 700));
+  val = static_cast<int>(map(percent, 0, 100, 1500, 2300));
   return val;
 }
