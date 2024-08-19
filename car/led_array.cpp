@@ -5,6 +5,7 @@ LedMatrix::LedMatrix(ArduinoLEDMatrix &matrix){
 }
 
 void LedMatrix::display_version(){
+  //display the current version.
   matrix.textFont(Font_5x7);
   matrix.textScrollSpeed(100);
   matrix.stroke(0xFF, 0, 0);
@@ -14,6 +15,7 @@ void LedMatrix::display_version(){
 }
 
 void LedMatrix::display_text(char text){
+  //display the given text.
   matrix.textFont(Font_5x7);
   matrix.textScrollSpeed(100);
   matrix.stroke(0xFF, 0, 0);

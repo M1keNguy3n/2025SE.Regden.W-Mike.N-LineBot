@@ -35,6 +35,7 @@
 
 class Ultrasonic {
   public:
+    Ultrasonic(){}
     Ultrasonic(int pin);
     long MeasureInCentimeters(uint32_t timeout = 1000000L);
     long MeasureInMillimeters(uint32_t timeout = 1000000L);

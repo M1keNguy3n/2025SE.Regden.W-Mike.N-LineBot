@@ -8,6 +8,7 @@ class LedMatrix: public ArduinoLEDMatrix{
   private:
     ArduinoLEDMatrix matrix;
   public:
+    LedMatrix(){};
     LedMatrix(ArduinoLEDMatrix& matrix);
     void display_version();
     void display_text(char text);

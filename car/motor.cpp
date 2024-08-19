@@ -19,7 +19,7 @@ void Motor::forward(){
   int l_speed = set_l_speed(15);
   int r_speed = set_r_speed(10);
   //moves forward until runtime ends.
-  while (timeNow - start < runtime){
+  if (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
     r_servo.writeMicroseconds(r_speed);
     delay(100);
@@ -34,7 +34,7 @@ void Motor::backward(){
   //the reverse speed is the same distance away from the midpoint as the forward speed
   int l_speed = abs(set_l_speed(15)-1500)+1500;
   int r_speed = abs(set_r_speed(15)-1500)+1500;
-  while (timeNow - start < runtime){
+  if (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
     r_servo.writeMicroseconds(r_speed);
     delay(100);
@@ -46,7 +46,7 @@ void Motor::stop_motor(){
   //stop both motors
   unsigned long timeNow = millis();
   unsigned long start = millis();
-  while (timeNow - start < runtime){
+  if (timeNow - start < runtime){
     l_servo.writeMicroseconds(1500);
     r_servo.writeMicroseconds(1500);
     delay(100);
@@ -58,7 +58,7 @@ void Motor::turn_left(){
   //turn 90 degress left
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  while (timeNow - start < turn_90){
+  if (timeNow - start < turn_90){
     l_servo.writeMicroseconds(700);
     r_servo.writeMicroseconds(700);
     delay(100);
@@ -71,7 +71,7 @@ void Motor::adjust_left(int r_speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   r_speed = set_r_speed(r_speed);
-  while (timeNow - start < runtime){
+  if (timeNow - start < runtime){
     l_servo.writeMicroseconds(1500);
     r_servo.writeMicroseconds(r_speed);
     delay(100);
@@ -80,9 +80,10 @@ void Motor::adjust_left(int r_speed){
 }
 
 void Motor::turn_right(){
+  //turn 90 degress right
   unsigned long start = millis();
   unsigned long timeNow = millis();
-  while (timeNow - start < turn_90){
+  if (timeNow - start < turn_90){
     l_servo.writeMicroseconds(2300);
     r_servo.writeMicroseconds(2300);
     delay(100);
@@ -95,7 +96,7 @@ void Motor::adjust_right(int l_speed){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   l_speed = set_l_speed(l_speed);
-  while (timeNow - start < runtime){
+  if (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
     r_servo.writeMicroseconds(1500);
     delay(100);
@@ -106,12 +107,14 @@ void Motor::adjust_right(int l_speed){
 
 
 int Motor::set_r_speed(int percent){
+  //set speed for the right motor
   int val = 0;
   val = static_cast<int>(map(percent, 0, 100, 1500, 700));
   return val;
 }
 
 int Motor::set_l_speed(int percent){
+  //set speed for the left motor
   int val = 0;
   val = static_cast<int>(map(percent, 0, 100, 1500, 2300));
   return val;

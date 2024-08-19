@@ -10,7 +10,9 @@ Servo l_servo;
 Motor motor(l_servo, r_servo, 60);
 IR r_ir(R_IR_PIN_ANALOG);
 IR l_ir(L_IR_PIN_ANALOG);
-AI_Driver car(motor, r_ir, l_ir);
+ArduinoLEDMatrix matrix;
+LedMatrix array(matrix);
+AI_Driver car(motor, r_ir, l_ir, array);
 
 void setup() {
   // put your setup code here, to run once:
