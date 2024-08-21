@@ -1,7 +1,7 @@
 #include "ai_driver.h"
 #define R_MOTOR_PIN 6
 #define L_MOTOR_PIN 5
-#define L_IR_PIN_ANALOG A0
+#define L_IR_PIN_ANALOG A3
 #define R_IR_PIN_ANALOG A1
 
 
