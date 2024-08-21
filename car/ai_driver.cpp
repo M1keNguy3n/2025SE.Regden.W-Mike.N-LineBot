@@ -32,30 +32,6 @@ void AI_Driver::init(byte L_MOTOR_PIN, byte R_MOTOR_PIN){
   l_sensor.init();
 }
 
-void AI_Driver::turn_left(){
-  //90 degrees counterclockwise turn
-  if (!(l_sensor.l_lineDetected()) || (r_sensor.r_lineDetected())){
-      motor.turn_left();
-    }
-}
-
-void AI_Driver::turn_right(){
-  //90 degrees clockwise turn
-  if (!(r_sensor.r_lineDetected()) || (l_sensor.l_lineDetected())){
-      motor.turn_right();
-    }
-}
-
-void AI_Driver::adjust_right(long r_speed, long l_speed){
-  //adjust the car to the right by a small ammount
-  motor.adjust_right(l_speed);
-}
-
-void AI_Driver::adjust_left(long r_speed, long l_speed){
-  //adjust the car to the left by a small ammount
-  motor.adjust_left(r_speed);
-}
-
 void AI_Driver::update(long r_speed, long l_speed){
   //main loop
   byte r_state = r_sensor.r_lineDetected();
