@@ -16,8 +16,8 @@ void Motor::forward(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   //assign speeds to each motor
-  int l_speed = set_l_speed(15);
-  int r_speed = set_r_speed(10);
+  int l_speed = set_l_speed(20);
+  int r_speed = set_r_speed(20);
   //moves forward until runtime ends.
   if (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);

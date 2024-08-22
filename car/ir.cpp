@@ -46,12 +46,12 @@ unsigned long IR::readStateAnalog(){
 bool IR::l_lineDetected(){
   //if the value is between 58 and 65, return true.
 
-  return (!(readStateAnalog() > 46));
+  return (!(readStateAnalog() > 65));
 }
 
 bool IR::r_lineDetected(){
   //if the value is between 46 and 56, return true.
 
-  return (!(readStateAnalog() > 46));
+  return (!(readStateAnalog() > 55));
 }
 

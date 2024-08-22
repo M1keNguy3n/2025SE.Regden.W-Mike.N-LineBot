@@ -19,6 +19,10 @@ void setup() {
   car.init(L_MOTOR_PIN, R_MOTOR_PIN);
   Serial.begin(9600);
   delay(2000);
+  
+  matrix.textFont(Font_5x7);
+  matrix.textScrollSpeed(100);
+  matrix.stroke(0xFF, 0, 0);
 }
 
 void loop() {
@@ -32,5 +36,5 @@ void loop() {
   delay(50);
   */
 
-  car.update(15, 15);
+  car.update(30, 30);
 }

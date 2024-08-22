@@ -33,7 +33,7 @@ unsigned long IR::readStateAnalog(){
 }
 
 bool IR::lineDetected(){
-  if (readStateAnalog() < 36){
+  if (readStateAnalog() < 46){
     return false;
   }
   else if (readStateAnalog() > 36 & readStateAnalog() < 55) {

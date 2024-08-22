@@ -50,9 +50,6 @@ void AI_Driver::update(long r_speed, long l_speed){
     motor.stop_motor();
     motor.adjust_left(r_speed);
   }
-  else if (r_sensor.r_lineDetected() && l_sensor.l_lineDetected()){
-    motor.backward();
-  }
 }
 
 void AI_Driver::test(){
