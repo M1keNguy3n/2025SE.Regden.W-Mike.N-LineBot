@@ -26,15 +26,5 @@ void setup() {
 }
 
 void loop() {
-  /*
-  Serial.print(r_ir.readStateAnalog());
-  Serial.print(" ");
-  Serial.print(!(r_ir.readStateAnalog() <= 43 || r_ir.readStateAnalog() > 52));
-  Serial.print(!(l_ir.readStateAnalog() < 82 || l_ir.readStateAnalog() > 89));
-  Serial.print(" ");
-  Serial.println(l_ir.readStateAnalog());
-  delay(50);
-  */
-
   car.update(30, 30);
 }
