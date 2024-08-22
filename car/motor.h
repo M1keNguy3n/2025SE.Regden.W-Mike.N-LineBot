@@ -8,13 +8,6 @@ class Motor{
     Servo r_servo;
     byte l_pin;
     byte r_pin;
-    int l_stop = 1500;
-    int l_max_clockwise = 2300;
-    int l_max_counterclockwise = 700;
-    int turn_90 = 520;
-    int r_stop = 1500;
-    int r_max_clockwise = 700;
-    int r_max_counterclockwise = 2300;
     unsigned long runtime;
   public:
     Motor(){}
@@ -31,5 +24,4 @@ class Motor{
     void adjust_left(int r_speed);
     void adjust_right(int l_speed);
 };
-
 #endif
