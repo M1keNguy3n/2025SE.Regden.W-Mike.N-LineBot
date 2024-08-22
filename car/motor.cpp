@@ -16,8 +16,8 @@ void Motor::forward(){
   unsigned long start = millis();
   unsigned long timeNow = millis();
   //assign speeds to each motor
-  int l_speed = set_l_speed(20);
-  int r_speed = set_r_speed(20);
+  int l_speed = set_l_speed(40);
+  int r_speed = set_r_speed(40);
   //moves forward until runtime ends.
   if (timeNow - start < runtime){
     l_servo.writeMicroseconds(l_speed);
@@ -54,17 +54,6 @@ void Motor::stop_motor(){
   }
 }
 
-void Motor::turn_left(){
-  //turn 90 degress left
-  unsigned long start = millis();
-  unsigned long timeNow = millis();
-  if (timeNow - start < turn_90){
-    l_servo.writeMicroseconds(700);
-    r_servo.writeMicroseconds(700);
-    delay(100);
-    timeNow = millis();
-  }
-}
 
 void Motor::adjust_left(int r_speed){
   //slightly swivel to the left. intensity is specified using r_speed.
@@ -78,18 +67,6 @@ void Motor::adjust_left(int r_speed){
     timeNow = millis();
   }
 }
-
-void Motor::turn_right(){
-  //turn 90 degress right
-  unsigned long start = millis();
-  unsigned long timeNow = millis();
-  if (timeNow - start < turn_90){
-    l_servo.writeMicroseconds(2300);
-    r_servo.writeMicroseconds(2300);
-    delay(100);
-    timeNow = millis();
-  }
-}  
 
 void Motor::adjust_right(int l_speed){
   //slightly swivel to the right. intensity is specified using l_speed

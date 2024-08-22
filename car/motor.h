@@ -9,6 +9,8 @@ class Motor{
     byte l_pin;
     byte r_pin;
     unsigned long runtime;
+    int set_r_speed(int percent);
+    int set_l_speed(int percent);
   public:
     Motor(){}
     Motor(Servo &l_servo, Servo &r_servo, unsigned long runtime);
@@ -16,8 +18,6 @@ class Motor{
     void stop_motor();
     void forward();
     void backward();
-    int set_r_speed(int percent);
-    int set_l_speed(int percent);
     void turn_left();
     void turn_right();
     void test();
