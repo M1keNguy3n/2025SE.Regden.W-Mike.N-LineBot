@@ -3,7 +3,6 @@
 IR::IR(byte pin_digital, byte pin_analog){
   //instantiate an IR sensor with digital and analog pin
   this -> pin_digital = pin_digital;
-  this -> pin_analog = pin_analog;
 }
 
 IR::IR(byte pin_analog){
@@ -46,12 +45,20 @@ unsigned long IR::readStateAnalog(){
 bool IR::l_lineDetected(){
   //if the value is between 58 and 65, return true.
 
+<<<<<<< HEAD
   return (!(readStateAnalog() > 65));
+=======
+  return (readStateAnalog() < 46);
+>>>>>>> 79b4874d0bc216b7253ad82bae1139df80b70f55
 }
 
 bool IR::r_lineDetected(){
   //if the value is between 46 and 56, return true.
 
+<<<<<<< HEAD
   return (!(readStateAnalog() > 55));
+=======
+  return (readStateAnalog() < 56);
+>>>>>>> 79b4874d0bc216b7253ad82bae1139df80b70f55
 }
 
